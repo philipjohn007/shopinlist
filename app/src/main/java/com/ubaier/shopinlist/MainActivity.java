@@ -1,43 +1,50 @@
 package com.ubaier.shopinlist;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
 
-    private Button btn;
-    private EditText textedit;
-    private ListView m_vwList;
+    private EditText newItem;
+    private Button btn_add;
+    private Button btn_done;
+    private Button btn_del;
+    private ListView lv_itemList;
+    private TextView tv_item;
+    private ArrayAdapter<String> arrayAdapter_itemList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_main );
+        setContentView(R.layout.activity_main );
+
+        setupViews();
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
+    private void setupViews() {
 
-        public PlaceholderFragment() {
-        }
+        newItem = (EditText) findViewById(R.id.et_newItem);
+        btn_add = (Button) findViewById(R.id.btn_add);
+        btn_done = (Button) findViewById(R.id.btn_done);
+        btn_del = (Button) findViewById(R.id.btn_del);
+        lv_itemList = (ListView) findViewById(R.id.lv_listitems);
+        tv_item = (TextView) findViewById(R.id.tv_itemName);
+    }
 
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
-            return rootView;
-        }
+    public void onAddItem(View v) {
+
+        Log.d("On Add item:", "on Add Item button was pressed!! The new value is: " + newItem.getText());
+        //tv_item.append("Hellow !!");
 
     }
 
