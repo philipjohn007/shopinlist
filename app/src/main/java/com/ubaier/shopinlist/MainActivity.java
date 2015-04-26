@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 
 public class MainActivity extends ActionBarActivity {
 
@@ -37,16 +39,46 @@ public class MainActivity extends ActionBarActivity {
         btn_done = (Button) findViewById(R.id.btn_done);
         btn_del = (Button) findViewById(R.id.btn_del);
         lv_itemList = (ListView) findViewById(R.id.lv_listitems);
-        tv_item = (TextView) findViewById(R.id.tv_itemName);
+
+
+        updateUI();
+
     }
 
 
     public void onAddItem(View v) {
-
         Log.d("On Add item:", "on Add Item button was pressed!! The new value is: " + newItem.getText());
-        //tv_item.append("Hellow !!");
+
+        // check if the edit text is empty
+        if(!(newItem.getText().toString().equals("")) ) {
+            ListItem newListItem = new ListItem(newItem.getText().toString());
+
+            ShopinlistApplication app = (ShopinlistApplication) getApplication();
+
+            app.addItem(newListItem);
+
+            // Clear the new item field
+            newItem.setText("");
+
+            updateUI();
+        }
 
     }
 
+
+    public void updateUI(){
+        ShopinlistApplication app = (ShopinlistApplication) getApplication();
+
+        ArrayList<ListItem> listItems = app.getAllListItems();
+
+        arrayAdapter_itemList = new ArrayAdapter<>(this, R.layout.list_item, android.R.id.text1);
+
+        for (ListItem item : listItems) {
+            arrayAdapter_itemList.add(item.getName());
+        }
+
+        lv_itemList.setAdapter(arrayAdapter_itemList);
+
+    }
 
 }

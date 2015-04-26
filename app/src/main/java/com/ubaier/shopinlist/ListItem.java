@@ -5,17 +5,30 @@ package com.ubaier.shopinlist;
  */
 public class ListItem {
 
-    private int id;
+    private long id;
     private String name;
     private Boolean isDone;
     private Boolean isDeleted;
 
-    public int getId() {
+    public ListItem(long id, String name, Boolean isDone, Boolean isDeleted) {
+        this.id = id;
+        this.name = name;
+        this.isDone = isDone;
+        this.isDeleted = isDeleted;
+    }
+
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
+    }
+
+    public ListItem(String name) {
+        this.name = name;
+        this.isDone = false;
+        this.isDeleted = false;
     }
 
     public String getName() {
