@@ -9,7 +9,7 @@
     tools:context=".MainActivity$PlaceholderFragment"
     android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
@@ -19,6 +19,9 @@
             android:layout_height="wrap_content"
             android:hint="@string/new_item"
             android:lines="1"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
              />
 
         <Button android:id="@+id/btn_add"
@@ -26,9 +29,12 @@
             android:layout_height="wrap_content"
             android:text="@string/add_item"
             android:onClick="onAddItem"
-            android:layout_gravity="end" />
+            android:layout_gravity="end"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <ListView
         android:layout_width="fill_parent"

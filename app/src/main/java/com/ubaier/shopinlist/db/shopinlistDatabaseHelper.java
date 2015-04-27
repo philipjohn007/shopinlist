@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 /**
- * Created by Ubaier on 25/04/2015.
+ * Helper for database
  */
 public class ShopinlistDatabaseHelper extends SQLiteOpenHelper{
 
