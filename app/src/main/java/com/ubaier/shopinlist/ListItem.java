@@ -1,14 +1,14 @@
 package com.ubaier.shopinlist;
 
 /**
- * Created by Ubaier on 25/04/2015.
+ * Class for a shopping list item
  */
 public class ListItem {
 
     private long id;
     private String name;
     private Boolean isDone;
-    private Boolean isDeleted;
+    private Boolean isDeleted; // will be used in case we don't want to delete the item but just hide it from the user.
 
     public ListItem(long id, String name, Boolean isDone, Boolean isDeleted) {
         this.id = id;
